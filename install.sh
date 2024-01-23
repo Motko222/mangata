@@ -19,7 +19,7 @@ http=$(cat /root/eigenlayer/cli/operator/config/operator-config.yaml | grep eth_
 ecdsa=$(cat /root/eigenlayer/cli/operator/config/operator-config.yaml | grep -w private_key_store_path: | awk -F "operator_keys/" '{print $NF}' )
 bls=$(cat /root/eigenlayer/cli/operator/config/operator-config.yaml | grep -w bls_private_key_store_path: | awk -F "operator_keys/" '{print $NF}' )
 
-sed -i "s#ETH_RPC_URL=#ETH_RPC_URL='$http'#" .env
+sed -i "s#ETH_RPC_URL=#ETH_RPC_URL=$http#" .env
 sed -i "s#ETH_WS_URL=#ETH_WS_URL=$ws#" .env
 sed -i "s/ecdsa.key.json/$ecdsa/" .env
 sed -i "s/bls.key.json/$bls/" .env
