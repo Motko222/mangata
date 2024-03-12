@@ -5,7 +5,7 @@ source ~/.bash_profile
 docker_status=$(docker inspect mangata-finalizer-node | jq -r .[].State.Status)
 id=mangata-$MANGATA_ID
 chain=testnet
-bucket=$MANGATA_BUCKET
+bucket=node
 
 case $docker_status in
   running) status="ok" ;;
